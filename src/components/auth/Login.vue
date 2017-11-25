@@ -13,7 +13,7 @@
                     </div>
                     <div class = "medium-6 cell">
                         <label>Password
-                            <input type = "text" placeholder = "xyz@cytonn.com" v-model = "login.password"
+                            <input type = "password" placeholder = "xyz@cytonn.com" v-model = "login.password"
                                    v-validate = "'required'" name = "password ">
                         </label>
                         <span v-show = "errors.has('password')"

@@ -21,7 +21,7 @@
                     </div>
                     <div class = "medium-6 cell">
                         <label>Password
-                            <input type = "text" placeholder = "Password" v-model = "user.password"
+                            <input type = "password" placeholder = "Password" v-model = "user.password"
                                    v-validate = "'required'" name = "password ">
                         </label>
                         <span v-show = "errors.has('password')"
@@ -29,7 +29,7 @@
                     </div>
                     <div class = "medium-6 cell">
                         <label> Confirm Password
-                            <input type = "text" placeholder = "Confirm Password"
+                            <input type = "password" placeholder = "Confirm Password"
                                    v-validate = "'required'" name = "confirm_password ">
                         </label>
                         <span v-show = "errors.has('password')"
