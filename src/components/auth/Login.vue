@@ -1,6 +1,6 @@
 <template>
     <div class = "login" id = "login">
-        <form  @submit.prevent="onLogin">
+        <form @submit.prevent = "onLogin">
             <div class = "grid-container">
                 <div class = "grid-x grid-padding-x">
                     <div class = "medium-6 cell">
@@ -19,8 +19,8 @@
                         <span v-show = "errors.has('password')"
                               class = "help is-danger">{{ errors.first('password')}}</span>
                     </div>
-                    <div class="login-button">
-                        <button class = "button success" typeof="submit">Login</button>
+                    <div class = "login-button">
+                        <button class = "button success" typeof = "submit">Login</button>
                     </div>
                 </div>
             </div>
@@ -28,19 +28,53 @@
     </div>
 </template>
 <script>
+    import axios from 'axios'
+    import {get_header, login_url, user_url} from "../../global/config";
+    import {client_id, client_secret} from "../../global/env";
     export default {
         data() {
-            return{
+            return {
                 login: {
-                    email: 'cokoyoh@cytonn.com',
-                    password: 'secret',
+                    email: '',
+                    password: '',
                 }
             }
         },
         methods: {
-            onLogin(){
+            onLogin: function () {
                 this.$validator.validateAll().then(() => {
-                    console.log("You are logging in");
+                    let post_data = {
+                        client_id: client_id,
+                        client_secret: client_secret,
+                        grant_type: 'password',
+                        username: this.login.email,
+                        password: this.login.password,
+                    };
+                    const auth_user = {};
+
+                    axios.post(login_url, post_data)
+                        .then(response => {
+                            if (response.status === 200) {
+                                console.log('Oauth Token', response);
+
+                                auth_user.access_token = response.data.access_token;
+                                auth_user.resfresh_token = response.data.resfresh_token;
+                                window.localStorage.setItem('auth_user', JSON.stringify(auth_user));
+
+                                //get a user token
+                                axios.get(user_url, {headers: get_header()})
+                                    .then(response => {
+                                        if (response.status === 200) {
+                                            console.log("User Object", response)
+
+                                            //set auth user details
+                                            auth_user.email = response.data.email;
+                                            auth_user.name = response.data.name;
+                                            window.localStorage.setItem('auth_user', JSON.stringify(auth_user));
+                                        }
+                                    })
+                            }
+                        })
                 });
             }
         }
@@ -49,11 +83,11 @@
 </script>
 
 <style type = "scss">
-.login{
-    padding: 60px 60px;
-    .help .is-danger{
-        color: red;
-        font-size: 14px;
+    .login {
+        padding: 60px 60px;
+        .help .is-danger {
+            color: red;
+            font-size: 14px;
+        }
     }
-}
 </style>
