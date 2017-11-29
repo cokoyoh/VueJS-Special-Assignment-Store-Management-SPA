@@ -35,8 +35,8 @@
         data() {
             return {
                 login: {
-                    email: '',
-                    password: '',
+                    email: 'wintheiser.lyla@example.org',
+                    password: 'secret',
                 }
             }
         },
