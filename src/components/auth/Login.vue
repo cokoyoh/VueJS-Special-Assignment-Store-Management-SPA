@@ -31,11 +31,12 @@
     import axios from 'axios'
     import {get_header, login_url, user_url} from "../../global/config";
     import {client_id, client_secret} from "../../global/env";
+
     export default {
         data() {
             return {
                 login: {
-                    email: 'wintheiser.lyla@example.org',
+                    email: 'dock46@example.net',
                     password: 'secret',
                 }
             }
@@ -71,6 +72,9 @@
                                             auth_user.email = response.data.email;
                                             auth_user.name = response.data.name;
                                             window.localStorage.setItem('auth_user', JSON.stringify(auth_user));
+
+                                            //redirect here to another page
+                                            this.$router.push({name:'contact-us'});
                                         }
                                     })
                             }
