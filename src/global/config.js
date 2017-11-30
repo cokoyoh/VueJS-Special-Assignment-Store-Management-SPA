@@ -2,6 +2,9 @@ export const api_domain =  'http://app.special/';
 export const login_url = api_domain + 'oauth/token';
 export const user_url = api_domain + 'api/user';
 
+//urls for items
+export const add_item_url = api_domain + 'api/create-item';
+
 export   const get_header  = function () {
     const token_date = JSON.parse(window.localStorage.getItem('auth_user'));
     const headers = {

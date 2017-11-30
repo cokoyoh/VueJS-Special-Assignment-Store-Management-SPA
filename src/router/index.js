@@ -4,6 +4,7 @@ import Vue from 'vue';
 import Contact from '../components/Contact-us.vue';
 import Login from '../components/auth/Login.vue';
 import Register from '../components/auth/Register.vue';
+import CreateItem from '../components/items/Create.vue';
 
 import VueRouter from 'vue-router';
 
@@ -16,18 +17,24 @@ const router = new VueRouter({
             name: 'login'
         },
         {
+            path:'/contact-us',
+            component: Contact,
+            name: 'contact-us'
+        },
+        {
             path: '/register',
             component: Register,
             name: 'register'
         },
         {
-            path: '/contact-us',
-            component: Contact,
-            name: 'contact-us',
+            path: '/create-item',
+            component: CreateItem,
+            name: 'create-item',
             meta: {
                 requireAuth: true
             }
         },
+
     ],
     mode: 'history',
 });

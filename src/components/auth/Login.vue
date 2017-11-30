@@ -74,7 +74,7 @@
                                             window.localStorage.setItem('auth_user', JSON.stringify(auth_user));
 
                                             //redirect here to another page
-                                            this.$router.push({name:'contact-us'});
+                                            this.$router.push({name:'create-item'});
                                         }
                                     })
                             }
