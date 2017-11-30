@@ -4,6 +4,7 @@ export const user_url = api_domain + 'api/user';
 
 //urls for items
 export const add_item_url = api_domain + 'api/create-item';
+export const get_all_items_url = api_domain + 'api/get-all-items';
 
 export   const get_header  = function () {
     const token_date = JSON.parse(window.localStorage.getItem('auth_user'));
