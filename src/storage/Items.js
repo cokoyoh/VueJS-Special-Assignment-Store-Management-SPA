@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {get_all_items_url} from "../global/config";
+
 const state = {
     items_list:{},
 };

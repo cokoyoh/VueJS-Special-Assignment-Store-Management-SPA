@@ -47,11 +47,9 @@
     </div>
 </template>
 <script>
-    import {mapState} from 'vuex';
     import axios from 'axios';
     import swal from 'sweetalert2';
     import {add_item_url, get_header} from "../../global/config";
-    import Items from '../../storage/Items';
 
     export default {
         data() {
@@ -74,12 +72,6 @@
                 });
             }
         },
-        created() {
-            this.$store.dispatch('setItemsList');
-        },
-        computed: mapState({
-            Items:state => state.Items
-        }),
     }
 
 </script>
