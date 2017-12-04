@@ -89,7 +89,7 @@
 <style type = "scss">
     .login {
         padding: 60px 60px;
-        .help .is-danger {
+        .is-danger {
             color: red;
             font-size: 14px;
         }

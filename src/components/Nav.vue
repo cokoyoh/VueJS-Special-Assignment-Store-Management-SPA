@@ -6,6 +6,7 @@
                     <li class="menu-text"><router-link :to="{name:'login'}">Store</router-link></li>
                     <li><a href="#"><router-link :to="{name:'contact-us'}">Contact Us</router-link></a></li>
                     <li><a href="#"><router-link :to="{name:'register'}">Register</router-link></a></li>
+                    <li><a href="#"><router-link :to="{name:'all-items'}">All Items</router-link></a></li>
                 </ul>
             </div>
             <div class="top-bar-right">
