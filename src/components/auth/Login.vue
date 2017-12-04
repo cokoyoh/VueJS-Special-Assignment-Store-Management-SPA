@@ -36,7 +36,7 @@
         data() {
             return {
                 login: {
-                    email: 'dock46@example.net',
+                    email: 'peichmann@example.com',
                     password: 'secret',
                 }
             }
