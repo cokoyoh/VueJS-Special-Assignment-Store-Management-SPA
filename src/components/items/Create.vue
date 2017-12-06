@@ -38,6 +38,12 @@
                                   class = "help is-danger">{{ errors.first('price')}}</span>
                         </div>
                         <div class="large-12 medium-12">
+                            <label>Item Image
+                                <input type = "file"
+                                       name="image" id="image" @change="imageChanged">
+                            </label>
+                        </div>
+                        <div class="large-12 medium-12">
                             <button class="button primary" value="submit">Submit</button>
                         </div>
                     </form>
@@ -55,7 +61,7 @@
         data() {
             return {
                 item: {
-                    name: '', description: '', total_number: '', price: ''
+                    name: '', description: '', total_number: '', price: '', image: ''
                 }
             }
         },
@@ -70,7 +76,16 @@
                             }
                         })
                 });
-            }
+            },
+            imageChanged(e){
+                console.log(e.target.files[0]);
+                let fileReader = new FileReader();
+                fileReader.readAsDataURL(e.target.files[0]);
+                fileReader.onload = (e) => {
+                    this.item.image = e.target.result
+                };
+                console.log(this.item)
+            },
         },
     }
 
