@@ -6,6 +6,7 @@ import Login from '../components/auth/Login.vue';
 import Register from '../components/auth/Register.vue';
 import CreateItem from '../components/items/Create.vue';
 import AllItems from '../components/items/ItemsAll.vue';
+import ItemDetails from '../components/items/Show.vue';
 
 import VueRouter from 'vue-router';
 
@@ -21,6 +22,11 @@ const router = new VueRouter({
             path: '/all-items',
             component: AllItems,
             name: 'all-items',
+        },
+        {
+            path: '/item-details/:item/show',
+            component: ItemDetails,
+            name: 'item-details',
         },
         {
             path:'/contact-us',
